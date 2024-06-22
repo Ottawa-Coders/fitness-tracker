@@ -1,0 +1,55 @@
+.accountBarContainer {
+  width: 100%;
+  display: block;
+}
+
+.accountBarContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: center;
+  align-items: center;
+  box-sizing: inherit;
+  max-width: 992px;
+  width: 100%;
+  min-height: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.accountBarLogo {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: white;
+  margin-left: 18px
+}
+
+.accountBarLinksContainer {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 50;
+  font-size: 15px;
+  color: white;
+  display: flex;
+  align-content: center;
+  margin-right: 18px;
+}
+
+.accountBarLinks {
+  padding: 0 20px 0 20px;
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-style: none solid none none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.accountBarLinksLast {
+  padding-left: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.accountBarUserName {
+  margin-left: 4px;
+}
