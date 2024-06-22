@@ -1,0 +1,36 @@
+.secondaryBarContainer {
+  width: 100%;
+  display: block;
+  background-color: hsl(0, 0%, 20%);
+}
+
+.secondaryBarContent {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: row;
+  box-sizing: inherit;
+  min-height: 50px;
+  max-width: 992px;
+  width: 100%;
+  align-items: center;
+  justify-content: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.secondaryBarLinkContainer {
+  padding: 18px;
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+  clip-path: inset(0px -100% 0px -100%);
+}
+
+.secondaryBarLinkContainer:hover {
+  box-shadow: 0 0 10px -1px black;
+}
+
+.active {
+  box-shadow: 0 0 10px -1px black;
+}
