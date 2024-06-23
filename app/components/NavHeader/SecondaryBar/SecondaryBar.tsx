@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
+import { SecondaryBarProps } from '@/app/constants'
 
 import styles from './SecondaryBar.module.css'
 
-const SecondaryBar = (props) => {
+const SecondaryBar = (props: SecondaryBarProps) => {
   return (
     <div className={styles.secondaryBarContainer}>
       <div className={styles.secondaryBarContent}>
