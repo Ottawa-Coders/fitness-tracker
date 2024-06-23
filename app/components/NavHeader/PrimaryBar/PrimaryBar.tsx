@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
+import { PrimaryBarProps } from '@/app/constants'
 
 import styles from './PrimaryBar.module.css'
 
-const PrimaryBar = (props) => {
+const PrimaryBar = (props: PrimaryBarProps) => {
 
   return (
     <div className={styles.primaryBarContainer}>
