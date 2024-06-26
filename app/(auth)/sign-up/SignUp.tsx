@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import style from "./SignUp.module.css";
 
 export default function SignUp() {
   const [formValues, setFormValues] = useState({
@@ -42,8 +41,8 @@ export default function SignUp() {
   };
 
   return (
-    <div className={style.signUpPageContainer}>
-      <div className={style.signUpContainer}>
+    <div className="overflowHiddenContainer">
+      <div className="inputContainer">
         <h1 className="mx-auto text-white">Sign Up Page</h1>
         <div>
           <div className="mb-3">
