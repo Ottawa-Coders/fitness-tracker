@@ -6,8 +6,7 @@ const AccountBar = () => {
   return (
     <div className={styles.accountBarContainer}>
       <div className={styles.accountBarContent}>
-        <p className={styles.accountBarLogo}>fitnesstracker.</p>
-        
+        <p className={styles.accountBarLogo}>MyFitnessDog.</p>
         <div className={styles.accountBarLinksContainer}>
           <div className={styles.accountBarLinks}>
             <p>Hi,<a className={styles.accountBarUserName}>Daniel</a></p>

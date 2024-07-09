@@ -1,25 +1,23 @@
 import React from 'react'
 import Link from 'next/link'
+import { PrimaryBarProps } from '@/app/constants'
 
 import styles from './PrimaryBar.module.css'
 
-const PrimaryBar = (props) => {
+const PrimaryBar = (props: PrimaryBarProps) => {
 
   return (
     <div className={styles.primaryBarContainer}>
       <div className={styles.primaryBarContent}>
-        <div className={styles.primaryBarLinkContainer + ' ' + (props.primary == 'home' ? styles.active : '')}>
-          <Link href='/home'>Home</Link>
-        </div>
-        <div className={styles.primaryBarLinkContainer + ' ' + (props.primary == 'food' ? styles.active : '')}>
-          <Link href='/food'>Food</Link>
-        </div>
-        <div className={styles.primaryBarLinkContainer + ' ' + (props.primary == 'exercise' ? styles.active : '')}>
-          <Link href='/exercise'>Excercise</Link>
-        </div>
-        <div className={styles.primaryBarLinkContainer + ' ' + (props.primary == 'report' ? styles.active : '')}>
-          <Link href='/report'>Report</Link>
-        </div>
+        <Link href='/home' className={styles.primaryBarLink + ' ' + (props.primary == '/home' ? styles.active : '')}>
+            Home
+        </Link>
+        <Link href='/food' className={styles.primaryBarLink + ' ' + (props.primary == '/food' ? styles.active : '')}>
+            Food
+        </Link>
+        <Link href='/report' className={styles.primaryBarLink + ' ' + (props.primary == '/report' ? styles.active : '')}>
+            Report
+        </Link>
       </div>
     </div>
   )

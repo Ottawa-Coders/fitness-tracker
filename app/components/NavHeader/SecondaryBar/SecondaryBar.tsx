@@ -1,23 +1,20 @@
 import React from 'react'
+import Link from 'next/link'
+import { SecondaryBarProps } from '@/app/constants'
 
 import styles from './SecondaryBar.module.css'
 
-const SecondaryBar = (props) => {
+const SecondaryBar = (props: SecondaryBarProps) => {
   return (
     <div className={styles.secondaryBarContainer}>
       <div className={styles.secondaryBarContent}>
-        <div className={styles.secondaryBarLinkContainer + ' ' + (props.secondary == 'overview' ? styles.active : '')}>
-          <a>Overview</a>
-        </div>
-        <div className={styles.secondaryBarLinkContainer}>
-          <a>Food</a>
-        </div>
-        <div className={styles.secondaryBarLinkContainer}>
-          <a>Exercise</a>
-        </div>
-        <div className={styles.secondaryBarLinkContainer}>
-          <a>Report</a>
-        </div>
+        {props.secondaryTabs ? props.secondaryTabs.map((tab) => {
+          return (
+            <Link href={tab.link} className={styles.secondaryBarLink + ' ' + (props.secondary == tab.link ? styles.active : '')}>
+              {tab.label}
+            </Link>
+          )
+        }) : null}
       </div>
     </div>
   )

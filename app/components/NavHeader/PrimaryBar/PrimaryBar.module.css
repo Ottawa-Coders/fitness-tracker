@@ -19,17 +19,15 @@
   margin-right: auto;
 }
 
-.primaryBarLinkContainer {
+.primaryBarLink {
+  text-align: center;
+  position: relative;
   padding: 18px;
+  width: 100px;
   cursor: pointer;
-  transition: box-shadow 0.5s;
-  clip-path: inset(0px -100% 0px -100%);
 }
 
-.primaryBarLinkContainer:hover {
-  box-shadow: 0 0 10px -1px black;
-}
-
-.active {
-  box-shadow: 0 0 10px -1px black;
+.active,
+.primaryBarLink:hover {
+  background-color: hsl(0, 0%, 20%);
 }
