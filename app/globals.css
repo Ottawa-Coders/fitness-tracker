@@ -11,3 +11,23 @@
     text-wrap: balance;
   }
 }
+
+.overflowHiddenContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow-y: hidden;
+}
+
+.inputContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  border-radius: 10px;
+  border: 2px solid grey;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+}

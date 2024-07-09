@@ -1,10 +1,9 @@
 import React from "react";
-import style from "./SignIn.module.css";
 
 const SignIn = () => {
   return (
-    <div className={style.loginPageContainer}>
-      <div className={style.loginContainer}>
+    <div className="overflowHiddenContainer">
+      <div className="inputContainer">
         <h1 className="mx-auto text-white">Sign In Page</h1>
         <form>
           <div className="mb-3">
