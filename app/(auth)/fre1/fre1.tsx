@@ -56,13 +56,13 @@ export default function Page() {
   };
 
   const nextPage = () => {
-    const firstNameValid = formValues.firstName === "";
-    const lastNameValid = formValues.lastName === "";
+    const firstNameInvalid = formValues.firstName === "";
+    const lastNameInvalid = formValues.lastName === "";
 
     setInvalidValues((prevValues) => ({
       ...prevValues,
-      isFirstNameInvalid: firstNameValid,
-      isLastNameInvalid: lastNameValid,
+      isFirstNameInvalid: firstNameInvalid,
+      isLastNameInvalid: lastNameInvalid,
     }));
 
     console.log(formValues);
