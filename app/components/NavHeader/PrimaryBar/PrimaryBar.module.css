@@ -27,6 +27,7 @@
   cursor: pointer;
 }
 
-.active, .primaryBarLink:hover {
+.active,
+.primaryBarLink:hover {
   background-color: hsl(0, 0%, 20%);
 }

@@ -29,7 +29,8 @@
   z-index: 1;
 }
 
-.secondaryBarLink::after, .active::after{
+.secondaryBarLink::after,
+.active::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -47,4 +48,5 @@
 }
 
 .active::after {
-  transform: scaleX(1);}
+  transform: scaleX(1);
+}
