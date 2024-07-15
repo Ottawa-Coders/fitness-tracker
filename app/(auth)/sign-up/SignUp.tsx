@@ -23,9 +23,14 @@ export default function SignUp() {
     try {
       console.log(formValues);
 
+      const body = {
+        username: formValues.username,
+        password: formValues.password,
+      };
+
       const response = await fetch("/api/user/routes", {
         method: "POST",
-        body: JSON.stringify(formValues),
+        body: JSON.stringify(body),
       });
 
       if (response.ok) {
