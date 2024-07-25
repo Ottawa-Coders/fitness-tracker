@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { setItem, userStorageKey } from "@/pages/utils/localStorage";
 
 export default function SignUp() {
   const [formValues, setFormValues] = useState({
@@ -35,10 +36,12 @@ export default function SignUp() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("User added successfully:", data);
+        console.log("User added successfully:", data.message);
+        console.log("User added successfully:", data.id);
+        setItem(userStorageKey, data.id.toString());
       } else {
         const errorData = await response.json();
-        console.error("Error adding user:", errorData);
+        console.error("Error adding user:", errorData.message);
       }
     } catch (error) {
       console.error("Error:", error);
