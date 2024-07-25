@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { setItem, getItem, userStorageKey } from "@/pages/utils/localStorage";
 
 export default function Page() {
   const [formValues, setFormValues] = useState({
@@ -66,6 +67,40 @@ export default function Page() {
     }));
 
     console.log(formValues);
+  };
+
+  const updateUser = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      const body = {
+        first_name: formValues.firstName,
+        last_name: formValues.lastName,
+        dob: formValues.dobInput,
+        about_me: formValues.aboutText,
+      };
+      console.log(body);
+
+      var userId = getItem(userStorageKey);
+
+      const response = await fetch(`/api/user/routes?id=${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log("User updated successfully:", data.message);
+      } else {
+        const errorData = await response.json();
+        console.error("Error adding user:", errorData.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -166,7 +201,7 @@ export default function Page() {
             </div>
           </div>
 
-          <button className="btn btn-primary" onClick={nextPage}>
+          <button className="btn btn-primary" onClick={updateUser}>
             Finish
           </button>
         </div>
