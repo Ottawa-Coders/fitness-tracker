@@ -1,17 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import NavHeader from '../components/NavHeader/NavHeader'
+import NavHeader from "../../pages/components/NavHeader/NavHeader";
 
 export default function Home() {
   return (
-  <>
-    <NavHeader 
-      primary='exercise'
-      secondary='overview'
-    />
-    <main>
-      
-    </main>
-  </>
+    <>
+      <NavHeader primary="exercise" secondary="overview" />
+      <main></main>
+    </>
   );
 }
