@@ -1,19 +1,17 @@
-import React from 'react'
+import React from "react";
 import Image from "next/image";
-import NavHeader from './components/NavHeader/NavHeader'
-import { HOME_SECONDARY_TABS } from './constants'
+import NavHeader from "../pages/components/NavHeader/NavHeader";
+import { HOME_SECONDARY_TABS } from "./constants";
 
 export default function Home() {
   return (
-  <>
-    <NavHeader 
-      primary='/home'
-      secondary='/home/overview'
-      secondaryTabs={HOME_SECONDARY_TABS}
-    />
-    <main>
-      
-    </main>
-  </>
+    <>
+      <NavHeader
+        primary="/home"
+        secondary="/home/overview"
+        secondaryTabs={HOME_SECONDARY_TABS}
+      />
+      <main></main>
+    </>
   );
 }

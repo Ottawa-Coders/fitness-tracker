@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import NavHeader from "../components/NavHeader/NavHeader";
+import NavHeader from "../../pages/components/NavHeader/NavHeader";
 import { HOME_SECONDARY_TABS } from "../constants";
 
 import ProgressBar from "@/pages/components/ProgressBar";
