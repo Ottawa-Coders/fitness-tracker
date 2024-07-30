@@ -1,0 +1,66 @@
+.globalFoodContainer {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 18px;
+  width: 100%;
+}
+
+.createFoodContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  height: 67px;
+}
+
+.createFoodContainer h1 {
+  font-size: 30px;
+}
+
+.createFoodLink {
+  border: 2px solid hsl(0, 0%, 100%);
+  padding: 18px;
+  width: 155px;
+  border-radius: 3px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.createFoodLink:hover {
+  background-color: white;
+  color: black
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  text-align: left;
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.searchContainer h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.searchContainer input {
+  border-radius: 3px;
+  padding: 0 6px;
+  color: black;
+  margin-bottom: 25px;
+}
+
+.searchContainer h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
