@@ -21,7 +21,7 @@ export default function Home() {
     };
 
     //do some search
-    const response = await fetch("/api/food/search/routes", {
+    const response = await fetch("/api/food/search/personal/routes", {
       method: "POST",
       body: JSON.stringify(body),
     })

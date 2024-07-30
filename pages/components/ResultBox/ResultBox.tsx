@@ -13,7 +13,7 @@ function ResultBox(props:Props) {
     <div className={styles.resultBoxContainer}>
       ResultBox
       {props.results.map((r) => {
-        return <div>{r.name}</div>
+        return <div>{r.description}</div>
       })}
     </div>
     </>
