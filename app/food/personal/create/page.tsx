@@ -4,7 +4,7 @@ import Image from "next/image";
 import NavHeader from "@/pages/components/NavHeader/NavHeader";
 import { FOOD_SECONDARY_TAB } from "@/app/constants";
 
-import ResultBox from "@/pages/components/ResultBox/ResultBox";
+import ResultBox from "@/pages/components/ResultBox";
 import Link from "next/link";
 
 import styles from "./page.module.css";
