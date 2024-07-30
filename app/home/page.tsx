@@ -15,7 +15,7 @@ export default function Home() {
       />
       <main>
         {/* home page container */}
-        <div className="w-full h-screen">
+        <div className="w-full">
           <div className="mx-[15%] mt-[50px] flex flex-col gap-[20px]">
             {/* daily summary */}
             <section className="bg-[grey] min-w-[500px] min-h-[200px]">
