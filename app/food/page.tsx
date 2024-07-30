@@ -7,30 +7,28 @@ import { FOOD_SECONDARY_TAB } from "../constants";
 import ResultBox from "@/pages/components/ResultBox";
 
 import NutritionFacts from "@/pages/components/NutritionFacts";
+import { FDCFood, FDCFoodNutrient, FDCResponse } from "@/pages/constants";
 
 export default function Home() {
-  const [results, setResults] = useState([
-    {
-      name: "Banana",
-      calorie: "114",
-      size: "medium",
-    },
-    {
-      name: "Apple",
-      calorie: "150",
-      size: "medium",
-    },
-    {
-      name: "Pear",
-      calorie: "200",
-      size: "medium",
-    },
-  ]);
+  const results: FDCResponse = {
+    foods: [
+      {
+        description: "Banana",
+        brandName: "Kellogs",
+        ingredients: "Banana",
+        packageWeight: "123g",
+        foodNutrients: [
+          { nutrientName: "string", unitName: "string", value: 12 },
+        ],
+      },
+    ],
+  };
 
   const [nutrition, setNutrition] = useState({
     description: "Banana",
+    unitName: "g",
     calorie: 114,
-    totalFat: 0,
+    totalFat: 0.33,
     saturatedFat: 0.13,
     polyunsaturatedFat: 0.083,
     nonSaturatedFat: 0.03,
@@ -58,12 +56,12 @@ export default function Home() {
         secondaryTabs={FOOD_SECONDARY_TAB}
       />
       <main>
-        <div className="w-full overflow-hidden flex">
-          <div className="w-[40%] text-white">
+        <div className="w-full overflow-hidden flex pl-[200px]">
+          <div className="w-[20%] text-white mr-[50px]">
             Matching Foods
-            <ResultBox results={results} />
+            <ResultBox {...results} />
           </div>
-          <div className="w-[55%] text-white">
+          <div className="w-[35%] text-white">
             <NutritionFacts nutrition={nutrition} />
           </div>
         </div>

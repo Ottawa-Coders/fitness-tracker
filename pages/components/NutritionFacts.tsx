@@ -3,6 +3,7 @@ import React from "react";
 type Props = {
   nutrition: {
     description: string;
+    unitName: string;
     calorie: number;
     totalFat: number;
     saturatedFat: number;
@@ -69,20 +70,129 @@ function NutritionFacts(props: Props) {
 
         <hr className="mx-[auto] w-[100%] bg-white" />
 
-        <div className="my-[4px] mx-[10px] w-full gap-[15px] flex">
-          <div className="w-[50%]">
+        <div className="my-[4px] mx-[10px] w-full gap-[15px] flex text-[15px]">
+          <div className="w-[50%] flex flex-col gap-[5px]">
             <div className="flex-row-global">
               <p>Calories</p>
-              <p>{nutrition.calorie}</p>
+              <p>
+                {nutrition.calorie} {nutrition.unitName}
+              </p>
+            </div>
+            <div className="flex-row-global">
+              <p>Total Fat</p>
+              <p>
+                {nutrition.totalFat} {nutrition.unitName}
+              </p>
+            </div>
+            <div className="pl-[8px] text-[14px] text-[#B7B7B7] flex flex-col gap-[5px]">
+              <div className="flex-row-global">
+                <p>Saturated</p>
+                <p>
+                  {nutrition.saturatedFat} {nutrition.unitName}
+                </p>
+              </div>
+              <div className="flex-row-global">
+                <p>Polyunsaturated</p>
+                <p>
+                  {nutrition.polyunsaturatedFat} {nutrition.unitName}
+                </p>
+              </div>
+              <div className="flex-row-global">
+                <p>Monounsaturated</p>
+                <p>
+                  {nutrition.nonSaturatedFat} {nutrition.unitName}
+                </p>
+              </div>
+              <div className="flex-row-global">
+                <p>Trans</p>
+                <p>
+                  {nutrition.transFat} {nutrition.unitName}
+                </p>
+              </div>
+            </div>
+            <div className="flex-row-global">
+              <p>Cholesterol</p>
+              <p>
+                {nutrition.cholesterol} {nutrition.unitName}
+              </p>
+            </div>
+
+            <hr className="mx-[auto] w-[100%] bg-white mt-[18px]" />
+
+            <div className="flex-row-global">
+              <p>Vitamin A</p>
+              <p>{nutrition.vitaminA} %</p>
+            </div>
+            <div className="flex-row-global">
+              <p>Vitamin C</p>
+              <p>{nutrition.vitaminC} %</p>
+            </div>
+            <div className="flex-row-global">
+              <p>Vitamin D</p>
+              <p>{nutrition.vitaminD} %</p>
             </div>
           </div>
-          <div className="w-[50%]">
+          <div className="w-[50%] flex flex-col gap-[5px]">
             <div className="flex-row-global">
-              <p>Calories</p>
-              <p>{nutrition.calorie}</p>
+              <p>Sodium</p>
+              <p>
+                {nutrition.sodium} {nutrition.unitName}
+              </p>
+            </div>
+            <div className="flex-row-global">
+              <p>Potassium</p>
+              <p>
+                {nutrition.potassium} {nutrition.unitName}
+              </p>
+            </div>
+            <div className="flex-row-global">
+              <p>Total Carbs</p>
+              <p>
+                {nutrition.totalCarbs} {nutrition.unitName}
+              </p>
+            </div>
+            <div className="pl-[8px] text-[14px] text-[#B7B7B7] flex flex-col gap-[5px]">
+              <div className="flex-row-global">
+                <p>Dietary Fiber</p>
+                <p>
+                  {nutrition.fiber} {nutrition.unitName}
+                </p>
+              </div>
+              <div className="flex-row-global">
+                <p>Sugars</p>
+                <p>
+                  {nutrition.sugar} {nutrition.unitName}
+                </p>
+              </div>
+            </div>
+            <div className="flex-row-global">
+              <p>Protein</p>
+              <p>
+                {nutrition.protein} {nutrition.unitName}
+              </p>
+            </div>
+
+            <hr className="mx-[auto] w-[100%] bg-white mt-[42px]" />
+            <div className="flex-row-global">
+              <p>Calcium</p>
+              <p>{nutrition.calcium} %</p>
+            </div>
+            <div className="flex-row-global">
+              <p>Iron</p>
+              <p>{nutrition.iron} %</p>
+            </div>
+            <div className="flex-row-global">
+              <p>Vitamin E</p>
+              <p>{nutrition.vitaminE} %</p>
             </div>
           </div>
         </div>
+
+        <hr className="mx-[auto] w-[100%] bg-white my-[6px]" />
+        <p className="text-[14px]">
+          *Percent Daily Values are based on a 2000 calorie diet. Your daily
+          values may be higher or lower depending on your calorie needs.
+        </p>
       </div>
     </>
   );

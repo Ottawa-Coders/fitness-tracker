@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
@@ -6,7 +6,7 @@ import NavHeader from "../../../pages/components/NavHeader/NavHeader";
 import { FOOD_SECONDARY_TAB } from "@/app/constants";
 import { FDCFood, FDCResponseData } from "@/pages/constants";
 
-import ResultBox from "@/pages/components/ResultBox/ResultBox";
+import ResultBox from "@/pages/components/ResultBox";
 
 import styles from "./page.module.css";
 
@@ -15,11 +15,11 @@ export default function Home() {
   const handleSearchChange = async (
     event: React.KeyboardEvent<HTMLInputElement>
   ) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       const body = {
-        searchTerm: (event.target as HTMLInputElement).value
-      }
-  
+        searchTerm: (event.target as HTMLInputElement).value,
+      };
+
       //do some search
       const response = await fetch("/api/food/search/fdc/routes", {
         method: "POST",
@@ -27,9 +27,9 @@ export default function Home() {
       })
         .then((response) => response.json())
         .then((data) => {
-          let res = data as unknown as FDCResponseData
-          const searchResults = res.results.foods
-          setResults([...searchResults])
+          let res = data as unknown as FDCResponseData;
+          const searchResults = res.results.foods;
+          setResults([...searchResults]);
         });
     }
   };

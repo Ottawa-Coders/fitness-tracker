@@ -1,25 +1,24 @@
 import React from "react";
+import { FDCResponse } from "@/pages/constants";
 
-type Props = {
-  results: any[];
-};
-
-function ResultBox(props: Props) {
+const ResultBox: React.FC<FDCResponse> = ({ foods }) => {
   return (
     <>
       <div className="border-white border-[2px] w-full p-[15px] h-max-[500px]">
-        {props.results.map((item, index) => {
+        {foods.map((item, index) => {
           return (
-            <div key="index">
+            <div key={index}>
               <div className="flex flex-col items-start">
                 <div className="flex flex-row items-center">
                   <p className="app-link w-auto font-semibold text-[18px]">
-                    {item.name}
+                    {item.description}
                   </p>
                   <i className="bi bi-shield-check text-[#63D277] ml-[5px]"></i>
                 </div>
-                <p className="text-[#A2A2A2] text-[14px]">{item.size}</p>
-                <p className="text-[#A2A2A2] text-[14px]">{item.calorie}</p>
+                <p className="text-[#A2A2A2] text-[14px]">{item.brandName}</p>
+                <p className="text-[#A2A2A2] text-[14px]">
+                  {item.packageWeight}
+                </p>
               </div>
               <hr className="my-[15px] mx-[auto] w-[100%] bg-white"></hr>
             </div>
@@ -28,6 +27,6 @@ function ResultBox(props: Props) {
       </div>
     </>
   );
-}
+};
 
 export default ResultBox;
