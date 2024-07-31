@@ -34,11 +34,11 @@
 }
 
 .app-link {
-  color: lightblue;
+  color: rgb(19, 67, 170);
 }
 
 .app-link:hover {
-  color: blue;
+  color: rgb(57, 145, 213);
 }
 
 .flex-row-global {
