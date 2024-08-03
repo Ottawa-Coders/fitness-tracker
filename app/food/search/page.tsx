@@ -29,6 +29,7 @@ export default function Home() {
         .then((data) => {
           let res = data as unknown as FDCResponseData;
           const searchResults = res.results.foods;
+          console.log(searchResults)
           setResults([...searchResults]);
         });
     }
@@ -55,7 +56,7 @@ export default function Home() {
               onKeyUp={handleSearchChange}
             />
             <h1>Foods:</h1>
-            <ResultBox results={results} />
+            <ResultBox results = {results} />
           </div>
         </div>
       </main>
