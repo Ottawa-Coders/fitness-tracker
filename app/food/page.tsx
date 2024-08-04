@@ -10,19 +10,118 @@ import NutritionFacts from "@/pages/components/NutritionFacts";
 import { FDCFood, FDCFoodNutrient, FDCResponse } from "@/pages/constants";
 
 export default function Home() {
-  const results: FDCResponse = {
+  const res: FDCResponse = {
     foods: [
       {
-        description: "Banana",
-        brandName: "Kellogs",
-        ingredients: "Banana",
-        packageWeight: "123g",
+        description: "CHEESE",
+        brandName: "S.J. FALBO",
+        ingredients: "PARMESAN AND ROMANO CHEESE. MADE FROM PASTEURIZED COW'S AND SHEEP'S MILK, CULTURE, SALT, AND ENZYMES. MICROCELLULOSE ADDED TO PREVENT CAKING.",
+        packageWeight: "227 g/8 oz",
+        // servingSizeUnit: "g",
+        // servingSize: 5,
         foodNutrients: [
-          { nutrientName: "string", unitName: "string", value: 12 },
+            {
+                nutrientId: 1003,
+                nutrientName: "Protein",
+                unitName: "G",
+                value: 60,
+            },
+            {
+                nutrientId: 1004,
+                nutrientName: "Total lipid (fat)",
+                unitName: "G",
+                value: 40,
+            },
+            {
+                nutrientId: 1005,
+                nutrientName: "Carbohydrate, by difference",
+                unitName: "G",
+                value: 40,
+            },
+            {
+                nutrientId: 1008,
+                nutrientName: "Energy",
+                unitName: "KCAL",
+                value: 500,
+            },
+            {
+                nutrientId: 2000,
+                nutrientName: "Total Sugars",
+                unitName: "G",
+                value: 0,
+            },
+            {
+                nutrientId: 1079,
+                nutrientName: "Fiber, total dietary",
+                unitName: "G",
+                value: 0,
+            },
+            {
+                nutrientId: 1087,
+                nutrientName: "Calcium, Ca",
+                unitName: "MG",
+                value: 1200,
+            },
+            {
+                nutrientId: 1089,
+                nutrientName: "Iron, Fe",
+                unitName: "MG",
+                value: 0,
+            },
+            {
+                nutrientId: 1093,
+                nutrientName: "Sodium, Na",
+                unitName: "MG",
+                value: 2000,
+            },
+            {
+                nutrientId: 1104,
+                nutrientName: "Vitamin A, IU",
+                unitName: "IU",
+                value: 2000,
+            },
+            {
+                nutrientId: 1162,
+                nutrientName: "Vitamin C, total ascorbic acid",
+                unitName: "MG",
+                value: 0,
+            },
+            {
+                nutrientId: 1253,
+                nutrientName: "Cholesterol",
+                unitName: "MG",
+                value: 100,
+            },
+            {
+                nutrientId: 1257,
+                nutrientName: "Fatty acids, total trans",
+                unitName: "G",
+                value: 0,
+            },
+            {
+                nutrientId: 1258,
+                nutrientName: "Fatty acids, total saturated",
+                unitName: "G",
+                value: 30,
+            },
+            {
+              nutrientId: 1110,
+              nutrientName: "Vitamin D (D2 + D3), International Units",
+              unitName: "IU",
+              value: 25,
+            },
+            {
+              nutrientId: 1092,
+              nutrientName: "Potassium, K",
+              unitName: "MG",
+              value: 117,
+            }
         ],
-      },
+    },
     ],
   };
+
+  const results: FDCFood[] = res.foods
 
   const [nutrition, setNutrition] = useState({
     description: "Banana",
@@ -59,10 +158,12 @@ export default function Home() {
         <div className="w-full overflow-hidden flex pl-[200px]">
           <div className="w-[20%] text-white mr-[50px]">
             Matching Foods
-            <ResultBox {...results} />
+            <ResultBox 
+              results = {results} 
+            />
           </div>
           <div className="w-[35%] text-white">
-            <NutritionFacts nutrition={nutrition} />
+            <NutritionFacts food={results[0]} />
           </div>
         </div>
       </main>

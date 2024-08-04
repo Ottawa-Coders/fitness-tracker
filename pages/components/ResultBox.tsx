@@ -1,7 +1,11 @@
 import React from "react";
-import { FDCResponse } from "@/pages/constants";
+import { FDCFood, FDCResponse } from "@/pages/constants";
 
-const ResultBox: React.FC<FDCResponse> = ({ foods }) => {
+type Props = {
+  results: FDCFood[]
+}
+const ResultBox = (props: Props) => {
+  const foods = props.results
   return (
     <>
       <div className="border-white border-[2px] w-full p-[15px] h-max-[500px]">

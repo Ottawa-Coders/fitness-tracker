@@ -8,9 +8,10 @@ import Link from "next/link";
 import ResultBox from "@/pages/components/ResultBox";
 
 import styles from "./page.module.css";
+import { FDCFood } from "@/pages/constants";
 
 export default function Home() {
-  const [results, setResults] = useState(["a", "b"]);
+  const [results, setResults] = useState([] as FDCFood[]);
   const handleSearchChange = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -58,7 +59,7 @@ export default function Home() {
               onChange={handleSearchChange}
             />
             <h1>Foods:</h1>
-            <ResultBox results={results} />
+            <ResultBox results = {results} />
           </div>
         </div>
       </main>

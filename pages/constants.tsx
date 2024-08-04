@@ -1,4 +1,5 @@
 export type FDCFoodNutrient = {
+  nutrientId: number;
   nutrientName: string;
   unitName: string;
   value: number;
