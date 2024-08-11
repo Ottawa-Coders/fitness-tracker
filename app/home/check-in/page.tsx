@@ -4,20 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import NavHeader from "../../../pages/components/NavHeader/NavHeader";
 import { HOME_SECONDARY_TABS } from "@/app/constants";
-
-const fetchUser = async (id: number) => {
-  try {
-    const response = await fetch(`/api/user/routes?id=${id}`);
-    if (!response.ok) {
-      throw new Error(`Error: ${response.statusText}`);
-    }
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching user:", error);
-    return { data: null };
-  }
-};
+import { fetchUser, updateUser } from "@/pages/utils/userAPI";
 
 export default function Check_In() {
   const [userData, setUserData] = useState(null);

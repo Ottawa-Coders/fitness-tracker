@@ -1,8 +1,15 @@
 import { userInfo } from "@/pages/constants";
 
-export const fetchUser = async (id: number) => {
+export const fetchUser = async (date: Date, userId: number) => {
   try {
-    const response = await fetch(`/api/user/routes?id=${id}`);
+    const response = await fetch(`/api/entries/routes`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ created_at: date, user_id: userId }),
+    });
+
     if (!response.ok) {
       throw new Error(`Error: ${response.statusText}`);
     }
@@ -14,9 +21,9 @@ export const fetchUser = async (id: number) => {
   }
 };
 
-export const updateUser = async (body: userInfo, userId: number) => {
+export const updateUser = async (body: userInfo) => {
   try {
-    const response = await fetch(`/api/user/routes?id=${userId}`, {
+    const response = await fetch(`/api/entries/routes`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

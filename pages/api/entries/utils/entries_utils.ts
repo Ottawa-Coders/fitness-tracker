@@ -44,6 +44,7 @@ const updateEntry = async (
     .from("entries")
     .update(updateInfo)
     .eq("created_at", updateInfo.created_at)
+    .eq("user_id", updateInfo.user_id)
     .select();
 
   if (error) {
