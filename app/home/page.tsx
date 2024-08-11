@@ -1,11 +1,30 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import NavHeader from "../../pages/components/NavHeader/NavHeader";
 import { HOME_SECONDARY_TABS } from "../constants";
 
+import { fetchUser, updateUser } from "@/pages/utils/userAPI";
+
 import ProgressBar from "@/pages/components/ProgressBar";
 
 export default function Home() {
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    const getUserData = async () => {
+      const result = await fetchUser(8);
+
+      const userInfo = result.data[0];
+
+      setUserData(userInfo);
+      console.log(userInfo);
+    };
+
+    getUserData();
+  }, []);
+
   return (
     <>
       <NavHeader
