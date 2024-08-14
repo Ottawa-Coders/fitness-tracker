@@ -52,4 +52,20 @@ const updateUser = async (
   return res.status(200).json({ message: "User has been updated" });
 };
 
-export { insertUser, updateUser };
+// test get user info without auth (specifically just used for testing will be replaced by auth ltr)
+const getUserInfo = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { id: userId } = req.query;
+
+  const { data, error } = await supabase.from("user").select().eq("id", userId);
+
+  if (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Server error", data: null });
+  }
+
+  return res
+    .status(200)
+    .json({ message: "Data retrieval successful", data: data });
+};
+
+export { insertUser, updateUser, getUserInfo };

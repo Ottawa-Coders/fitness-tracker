@@ -1,11 +1,55 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import NavHeader from "../../pages/components/NavHeader/NavHeader";
 import { HOME_SECONDARY_TABS } from "../constants";
 
+import { fetchUser, updateUser } from "@/pages/utils/userAPI";
+import { getDaysDifference } from "@/pages/utils/dateUtils";
+import { userInfo, initialUserInfo } from "@/pages/constants";
+
 import ProgressBar from "@/pages/components/ProgressBar";
 
 export default function Home() {
+  const [userData, setUserData] = useState<userInfo>(initialUserInfo);
+
+  const [calInfo, setCalInfo] = useState<{
+    foodCal: number;
+    exerciseCal: number;
+  }>({
+    foodCal: 0,
+    exerciseCal: 0,
+  });
+
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const result = await fetchUser(8);
+        const userInfo = result.data[0];
+
+        if (getDaysDifference(userInfo.last_login) > 1) {
+          userInfo.day_streak = 0;
+        } else {
+          console.log(getDaysDifference(userInfo.last_login));
+          if (getDaysDifference(userInfo.last_login) == 1) {
+            userInfo.day_streak += 1;
+          }
+        }
+
+        const message = await updateUser(userInfo, 8);
+        // console.log(message);
+
+        setUserData(userInfo);
+        console.log(userInfo);
+      } catch (error) {
+        console.error("Error updating user data:", error);
+      }
+    };
+
+    getUserData();
+  }, []);
+
   return (
     <>
       <NavHeader
@@ -25,7 +69,9 @@ export default function Home() {
                   Your Daily Summary
                 </h2>
                 <div className="items-center flex">
-                  <h2 className="text-[45px] mr-[10px]">1</h2>
+                  <h2 className="text-[45px] mr-[10px]">
+                    {userData.day_streak}
+                  </h2>
                   <div className="flex items-start flex-col">
                     <p className="text-[14px]">Day</p>
                     <p className="text-[14px]">Streak</p>
@@ -42,7 +88,7 @@ export default function Home() {
                     <div className="flex flex-col">
                       <div className="flex items-baseline">
                         <p className="text-[#78CD87] text-[20px] font-semibold mr-1">
-                          0
+                          {userData.weight_lost}
                         </p>
                         <p>lbs</p>
                       </div>
@@ -61,7 +107,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center justify-between">
                     <h1 className="text-[#75D386] text-[50px] font-bold">
-                      2560
+                      {userData.cal_goal}
                     </h1>
                     <div>
                       <button className="btn btn-outline-secondary bg-white mr-[20px]">
@@ -77,28 +123,38 @@ export default function Home() {
 
                   <div className="flex justify-between items-center w-[75%] mb-[10px]">
                     <div className="flex flex-col">
-                      <h1 className="text-[25px] font-bold">2560</h1>
+                      <h1 className="text-[25px] font-bold">
+                        {userData.cal_goal -
+                          calInfo.foodCal +
+                          calInfo.exerciseCal}
+                      </h1>
                       <p className="text-[14px] font-semibold">GOAL</p>
                     </div>
 
                     <div className="border-r-2 border-gray-50 h-[25px]"></div>
 
                     <div className="flex flex-col">
-                      <h1 className="text-[25px] font-bold">0</h1>
+                      <h1 className="text-[25px] font-bold">
+                        {calInfo.foodCal}
+                      </h1>
                       <p className="text-[14px] font-semibold">FOOD</p>
                     </div>
 
                     <div className="text-[14px] font-semibold">-</div>
 
                     <div className="flex flex-col">
-                      <h1 className="text-[25px] font-bold">0</h1>
+                      <h1 className="text-[25px] font-bold">
+                        {calInfo.exerciseCal}
+                      </h1>
                       <p className="text-[14px] font-semibold">EXERCISE</p>
                     </div>
 
                     <div className="text-[14px] font-semibold">=</div>
 
                     <div className="flex flex-col">
-                      <h1 className="text-[25px] font-bold">0</h1>
+                      <h1 className="text-[25px] font-bold">
+                        {calInfo.foodCal - calInfo.exerciseCal}
+                      </h1>
                       <p className="text-[14px] font-semibold">NET</p>
                     </div>
                   </div>
